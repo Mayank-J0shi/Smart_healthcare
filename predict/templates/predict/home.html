@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+    {% load static %}
+    <head>
+        <link rel="shortcut icon" href="{% static 'predict/images/cardiogram.png' %}" type="image/x-icon">
+		<title>Disease Prediction</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'predict/assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				{% if user.is_authenticated %}
+					<h1>Logged in as {{ user.username }}</h1>
+				{% else %}
+					<h1><strong><a href="{% url 'index' %}">Smart healthcare system</a></strong></h1>
+				{% endif %}
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+                    <header class="major special">
+                        <h2 color="white">Fill the details</h2>
+                        {% if user.is_authenticated %}
+
+                        {% else %}
+                            <p>No user detected, only accessible for logged in users</p>
+                        {% endif %}
+                    </header>
+                    <hr>
+                    <form  action="{% url 'prediction' %}">
+
+                          <fieldset style="border-width:20px;border-color:red">
+                              <h2>Personal details</h2>
+                              <input type="text" name="name" placeholder="Name" required><br>
+                              <input type="text" name="age" placeholder="Age" required><br>
+                              <select name="gender" required>
+                                <option value="" >Gender</option>
+                                <option value="Male" >Male</option>
+                                <option value="Female" >Female</option>
+                                <option value="Other">Other</option>
+                              </select>
+                              <br>
+                              <input type="number" name="height" placeholder="Height(in cm)" required><br><br>
+                              <input type="number" name="weight" placeholder="Weight(in kg)" required><br><br>
+                          </fieldset>
+                            <hr>
+                          <fieldset>
+                              <h2>Symptoms</h2>
+                                <select name="symptom1">
+                                    <option value="">Enter a symptom</option>
+                                  {% for elem in drop_down %}
+                                  <option value={{ elem }}>{{ elem }}</option>
+                                  {% endfor %}
+                                </select>
+                              <br>
+                                <select name="symptom2">
+                                    <option value="">Enter a symptom</option>
+                                  {% for elem in drop_down %}
+                                  <option value={{ elem }}>{{ elem }}</option>
+                                  {% endfor %}
+                                </select>
+                              <br>
+                                <select name="symptom3">
+                                    <option value="">Enter a symptom</option>
+                                  {% for elem in drop_down %}
+                                  <option value={{ elem }}>{{ elem }}</option>
+                                  {% endfor %}
+                                </select>
+                              <br>
+                                <select name="symptom4">
+                                    <option value="">Enter a symptom</option>
+                                  {% for elem in drop_down %}
+                                  <option value={{ elem }}>{{ elem }}</option>
+                                  {% endfor %}
+                                </select>
+                              <br>
+                                <select name="symptom5">
+                                    <option value="">Enter a symptom</option>
+                                  {% for elem in drop_down %}
+                                  <option value={{ elem }}>{{ elem }}</option>
+                                  {% endfor %}
+                                </select>
+                              <br>
+                          </fieldset>
+                          <div class="3u 6u$(small) 12u$(xsmall)">
+									<ul class="actions vertical small">
+										<li><button type="submit" class="button special small" >Submit</button></li>
+									</ul>
+							</div>
+                    </form>
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/mayank-joshi-219658191/" class="icon fa-linkedin" target="_blank"></a></li>
+						<li><a href="https://github.com/Mayank-J0shi" class="icon fa-github" target="_blank"></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'predict/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/util.js' %}"></script>
+			<script src="{% static 'predict/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+
+

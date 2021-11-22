@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static %}
+	<head>
+		<link rel="shortcut icon" href="{% static 'predict/images/cardiogram.png' %}" type="image/x-icon">
+		<title>Report</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'predict/assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<h1><strong><a href="{% url 'index' %}">Smart healthcare system</a></strong></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'blog:all_blogs' %}">Blog</a></li>
+						<li><a href="{% url 'index' %}">Home</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<h2 class="major special">Report</h2>
+
+					<hr>
+					<h3 class="major special">Personal details</h3>
+
+					<fieldset>
+                        <h4>NAME : {{ report.name }}</h4>
+                        <h4>AGE : {{ report.age }}</h4>
+                        <h4>GENDER : {{ report.gender }}</h4>
+                        <h4>HEIGHT : {{ report.height }}</h4>
+                        <h4>WEIGHT : {{ report.weight }}</h4>
+					</fieldset>
+					<hr>
+					<h3 class="major special">symptoms</h3>
+
+                    <h4>SYMPTOM1 : {{ report.symptom1 }}</h4>
+                    <h4>SYMPTOM2 :{{ report.symptom2 }}</h4>
+                    <h4>SYMPTOM3 :{{ report.symptom3 }}</h4>
+                    <h4>SYMPTOM4 :{{ report.symptom4 }}</h4>
+                    <h4>SYMPTOM5 :{{ report.symptom5 }}</h4>
+
+					<hr>
+					<h3 class="major special">ANALYSIS</h3>
+
+                    <h4>PREDICTED DISEASE : {{ report.disease }}</h4>
+                    <h4>CONSULTED DOCTOR : {{ report.consultDoctor }}</h4>
+
+
+				</div>
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-facebook"></a></li>
+						<li><a href="#" class="icon fa-twitter"></a></li>
+						<li><a href="#" class="icon fa-instagram"></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'predict/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/util.js' %}"></script>
+			<script src="{% static 'predict/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

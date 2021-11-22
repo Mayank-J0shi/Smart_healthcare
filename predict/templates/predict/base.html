@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	{% load static %}
+	<head>
+		<link rel="shortcut icon" href="{% static 'predict/images/cardiogram.png' %}" type="image/x-icon">
+		<title>Blogs</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'predict/assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				{% if user.is_authenticated %}
+					<h1>Logged in as {{ user.username }}</h1>
+				{% else %}
+					<h1><strong><a href="{% url 'index' %}">Smart healthcare system</a></strong></h1>
+				{% endif %}
+				<nav id="nav">
+					<ul>
+						{% if user.is_authenticated %}
+
+						{% else %}
+							<li><a href="{% url 'signupuser' %}">SignUp</a></li>
+							<li><a href="{% url 'loginuser' %}">Login</a></li>
+						{% endif %}
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'blog:all_blogs' %}">Blog</a></li>
+					</ul>
+				</nav>
+			</header>
+
+             <div class="container">
+                 {% block content %}{% endblock %}
+             </div>
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/mayank-joshi-219658191/" class="icon fa-linkedin" target="_blank"></a></li>
+						<li><a href="https://github.com/Mayank-J0shi" class="icon fa-github" target="_blank"></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'predict/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/util.js' %}"></script>
+			<script src="{% static 'predict/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

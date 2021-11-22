@@ -1,0 +1,72 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+	{% load static %}
+	<head>
+		<link rel="shortcut icon" href="{% static 'predict/images/cardiogram.png' %}" type="image/x-icon">
+		<title>Search Results</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'predict/assets/css/main.css' %}" />
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				{% if user.is_authenticated %}
+					<h1>Logged in as {{ user.username }}</h1>
+				{% else %}
+					<h1><strong><a href="{% url 'index' %}">Smart healthcare system</a></strong></h1>
+				{% endif %}
+				<nav id="nav">
+					<ul>
+						{% if user.is_authenticated %}
+							<li><a href="{% url 'myReports' %}">My Reports</a></li>
+						{% else %}
+							<li><a href="{% url 'signupuser' %}">SignUp</a></li>
+							<li><a href="{% url 'loginuser' %}">Login</a></li>
+						{% endif %}
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'blog:all_blogs' %}">Articles</a></li>
+						<li><a href="{% url 'home' %}">Checkup</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+
+		<!-- Main -->
+			<section id="main" class="wrapper">
+				<div class="container">
+
+					<header class="major special">
+                        <h2 color="white">Doctor Found</h2>
+						<p>the doctors near you are </p>
+                    </header>
+					<section>
+						{% for doc_data in doc %}
+							<h3 class="search_data"><strong>DOCTOR :</strong> {{ doc_data.Doctor }}, {{ doc_data.Type }}</h3>
+							<h3 class="search_data"><strong>DOCTOR'S LOCATION :</strong> {{ doc_data.Location }}</h3>
+							<hr>
+						{% endfor %}
+					</section>
+				</div>
+            </section>
+
+			<footer id="footer">
+				<div class="container">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/mayank-joshi-219658191/" class="icon fa-linkedin" target="_blank"></a></li>
+						<li><a href="https://github.com/Mayank-J0shi" class="icon fa-github" target="_blank"></a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'predict/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'predict/assets/js/util.js' %}"></script>
+			<script src="{% static 'predict/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
