@@ -43,9 +43,5 @@ The objective is to create online healthcare system that can predict the disease
 ![](images/3.DiseasePredicted.png)
 ![](images/images/4.ReportGenerated.png)
 
-## Thought Process
-
-![image](https://user-images.githubusercontent.com/54811830/143239303-89cae5ab-e2c9-4be9-b633-7c5dc082081e.png)
+## PPT Presentation
 https://docs.google.com/presentation/d/1fAF36XD0-_2vgB2S2mNc901Z7qVcXymIWFg_wt7cjaI/edit?usp=sharing
-
-
