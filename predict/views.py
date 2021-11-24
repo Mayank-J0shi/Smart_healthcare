@@ -155,7 +155,7 @@ def index(request):
     quote_data=response.text
     quoteLine=quote_data.split(":")[1].split('"')[1]
     # print(quoteLine)
-    return render(request, "predict/index.html", {"quote": quoteLine, "author": "Benjammin Frankin", "disease": list_disease})
+    return render(request, "predict/index.html", {"quote": "Always laugh when you can, it is cheap medicine.", "author": "Lord Byron Frankin", "disease": list_disease})
 
 def signupuser(request):
     if request.method =='GET':
