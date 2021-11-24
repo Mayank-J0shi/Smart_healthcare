@@ -133,17 +133,29 @@ def home(request):
         return loginuser(request)
 
 def index(request):
-    import requests
+    # import requests
     list_disease = []
     disease_obj = database.objects.all()
     for d in disease_obj:
         list_disease.append(d.disease)
-    url = "https://goquotes-api.herokuapp.com/api/v1/random/1?type=tag&val=medical"
-    response = requests.request("GET", url)
-    quote_list = response.text.split('"')
-    quote = quote_list[13]
-    author = quote_list[17]
-    return render(request, "predict/index.html", {"quote": quote, "author": author, "disease": list_disease})
+    # url = "https://goquotes-api.herokuapp.com/api/v1/random/1?type=tag&val=medical"
+    # response = requests.request("GET", url)
+    # quote_list = response.text.split('"')
+    # print(quote_list)
+    # quote = quote_list[13]
+    # author = quote_list[17]
+    import requests
+    url = "https://healthruwords.p.rapidapi.com/v1/quotes/"
+    querystring = {"t": "Wisdom", "maxR": "1", "size": "medium", "id": "731"}
+    headers = {
+        'x-rapidapi-host': "healthruwords.p.rapidapi.com",
+        'x-rapidapi-key': "SIGN-UP-FOR-KEY"
+    }
+    response = requests.request("GET", url, headers=headers, params=querystring)
+    quote_data=response.text
+    quoteLine=quote_data.split(":")[1].split('"')[1]
+    # print(quoteLine)
+    return render(request, "predict/index.html", {"quote": quoteLine, "author": "Benjammin Frankin", "disease": list_disease})
 
 def signupuser(request):
     if request.method =='GET':
