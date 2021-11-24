@@ -8,7 +8,7 @@ The objective is to create online healthcare system that can predict the disease
 1. Install the requirements run
 ```bash
   pip install -r requirements.txt
-```![1 HomePage](https://user-images.githubusercontent.com/54811830/143238836-8ea433c4-3349-4a80-9bab-2af5624338fb.png)
+```
 
 2. Migrate all the models used in this project
 ```bash
