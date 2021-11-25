@@ -23,7 +23,11 @@ The objective is to create online healthcare system that can predict the disease
 ```bash
   python manage.py createsuperuser
 ```
-5. Access the Django admin and in the predict section import 
+5. Access Django admin by
+```bash
+   running the server and adding /admin in the end
+```
+6. Access the Django admin and in the predict section import 
 ```bash
   DBM.csv --> Databases
   doc_db --> Doc_db
